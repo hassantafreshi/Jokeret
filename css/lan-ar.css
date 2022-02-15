@@ -1,0 +1,14 @@
+@font-face {
+    font-family: DubaiW23-Regular ;
+    src: url('/font/DubaiW23-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: "DubaiW23-Regular"!important;
+    font-weight: 300; }
+
+.rtl {
+    direction: rtl;
+    }

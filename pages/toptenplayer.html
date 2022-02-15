@@ -1,0 +1,188 @@
+<html lang="en">
+<head>
+<!-- firebase auth section -->
+ <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase.js"></script>
+ 
+ <!-- <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script> -->
+ <script type="text/javascript" src="/js/bone/lan/language.js"></script>
+<!-- firebase end section -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="/js/gifts.js"></script>
+  <title>Jokeret |Online Cards Game> Top 10</title> 
+  <!-- materialize icons, css & js -->
+  <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" href="/css/styles.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8J3FCS630"></script>
+  <!-- -->
+  <script type="text/javascript" src="/js/bone/lan/ph.js"></script>
+  <script type="text/javascript" src="/js/bone/lan/language.js"></script>
+  <link rel="manifest" href="/manifest.json">
+  
+      <script type="text/javascript" src="/js/browser.js"></script> <!-- check browser versuion -->
+  
+     
+     <!-- colyseus.js client -->
+    
+  <!--  IOS support-->
+  <!--  برای هر نسخه موبایل باید آیکون ها ادد شود-->
+  <link rel="apple-touch-icon" href="/icons/icon-96.png">
+  <meta name="apple-mobile-web-app-status-ba" content ="#053f5e">  <!-- header Color IOS -->
+
+</head>
+<body class=" indigo lighten-5" id="body">
+
+  <!-- top nav 2 -->
+<header>
+  <nav class="z-depth-0" id="head-nav">
+    <script type="text/javascript" src="../js/bone/head.js"></script>
+    <script> fun_head_show(true); </script>
+  </nav>
+</header>
+
+  <!-- side nav 2 -->
+   <ul id="side-menu" class="sidenav side-menu ">
+    <script type="text/javascript" src="/js/bone/side-menu.js"></script>
+    <script> fun_side_menu(true); </script>
+  </ul>
+
+
+  <!-- content -->
+  <div class="indigo lighten-5 row " id="content">
+    <div class="col s12 row center">
+        <h2 id="topten-title">topTen</h2>
+       <!-- <h5 id="topten-des">Jokeret gives  5$ Gift Card to top 10 players. The End of Second Round is 18 April 2020.</h5>-->
+        
+        <h6 onClick='open_link()' id="topten-lastwinner">Winners of first round(Tep here)</h6>
+         <table>
+          <thead>
+            <tr class="red-Jokeret white-text">
+                
+                <th id='noTitle' style="width: 10%;">No.</th>
+                <th id='nameTitle' style="width: 50%;">Name</th>
+                <th id='coinTitle'>Coin</th>
+            </tr>
+          </thead>
+
+          <tbody id="topTenRows">
+            <tr class="yellow lighten-5" id="rowNoTopTen">
+             
+              <td id="noUser">1</td>
+              <td id="nameUser">ِMoz</td>
+              <td id="coinUser">100000</td>
+            </tr>
+
+                    
+          </tbody>
+        </table>
+      </div>
+     
+  </div>
+   
+
+
+
+
+
+  <!-- add card-room side nav -->
+   <script type="text/javascript" src="https://raw.githack.com/colyseus/colyseus.js/0.12.0/dist/colyseus.js"></script>
+    <script src="/js/bone/auth.js"></script>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js'></script>
+  <div id="side-form" class="sidenav side-form   indigo lighten-5 ">
+ 
+
+  <script src="/js/ui.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/scrpt.js"></script>
+ 
+  <script>
+  
+
+  if(localStorage.getItem('language')==='fa' || localStorage.getItem('language')==='ar'){
+    console.log('rtl');
+    document.getElementById('content').className+="rtl";
+
+  }else{
+     document.getElementById('content').className="ndigo lighten-5 row";
+  }
+  </script>
+
+     <script>
+      var host = window.document.location.host.replace(/:.*/, '');
+          var client = new Colyseus.Client(location.protocol.replace("http", "ws") + "//" + host + (location.port ? ':'+location.port : ''));
+          client.create("control").then(room => {            
+         
+      
+         
+            room.onStateChange.once(function(state) {
+                
+            });
+            room.onMessage(function(message) {
+                     //console.log(message);
+                     if(message.meta==="toptenReturn"){
+                       fun_add_table(message.val)
+                     }
+                                              
+            });
+           
+            localStorage.getItem('id') ? room.send({event:'topten', uid:localStorage.getItem('id')}):0;
+
+           
+          });
+
+
+          function fun_add_table(obj){
+            /*
+                   
+              <td id="noUser">1</td>
+              <td id="nameUser">Eclair</td>
+              <td id="coinUser">100000</td>
+            */
+            let content =  document.getElementById('topTenRows');
+            let temp;
+            for(o in obj){
+           
+              if(o==0){
+                temp =`  
+                    <tr class="grey lighten-4" id="rowNoTopTen">              
+                      <td id="noUser">${obj[o].i}</td>
+                      <td id="nameUser"><img src="${obj[o].image=='d' ? '/img/logo/joker_00.jpg':obj[o].image}"  onerror="this.onerror=null;this.src='https://jokeret.com/img/logo/joker_00.jpg';"  alt="User Photo" class=" circle" id="img-user-head-info" width="25"> <span class="table-tt-name"> ${obj[o].name}</span></td>
+                      <td id="coinUser">${obj[o].coin}</td>
+                    </tr>`;
+              }else{
+                
+                temp +=`            
+                <tr class="${o%2 ? 'amber lighten-4'  :'grey lighten-4' }" id="rowNoTopTen">              
+                  <td id="noUser">${obj[o].i}</td>
+                  <td id="nameUser"><img src="${obj[o].image=='d' ? '/img/logo/joker_00.jpg':obj[o].image}"  onerror="this.onerror=null;this.src='https://jokeret.com/img/logo/joker_00.jpg';" alt="User Photo"  class=" circle" id="img-user-head-info" width="25"> <span class="table-tt-name"> ${obj[o].name}</span></td>
+                  <td id="coinUser">${obj[o].coin}</td>
+                </tr>`;
+              }
+ 
+            }
+            content.innerHTML =temp ;
+          }
+
+          localStorage.getItem("language")==="ar" ? document.getElementById("content").className +=" body-rtl font-arabic" :0 ;
+          localStorage.getItem("language")==="fa" ? document.getElementById("content").className +=" body-rtl font-persian" :0 ;
+          document.getElementById('topten-title').innerHTML =`${trans(`Top Ten`)}`;
+          //document.getElementById('topten-des').innerHTML =`${trans(document.getElementById('topten-des').innerHTML)}`;
+          document.getElementById('topten-lastwinner').innerHTML =`${trans( document.getElementById('topten-lastwinner').innerHTML)}`;
+          document.getElementById('noTitle').innerHTML =`${trans(`No.`)}`;
+          document.getElementById('nameTitle').innerHTML =`${trans(`name`)}`;
+          document.getElementById('coinTitle').innerHTML =`${trans(`Coin`)}`;
+          fun_setting_get_data();
+           gtag('event', 'top10_page');
+
+          function open_link(){
+          window.open('/pages/winner/top10-winner-gift-card-032920.html',"_self");
+           document.getElementById('content').innerHTML= preloader();
+            
+          }
+   </script>
+  
+</body>
+</html>

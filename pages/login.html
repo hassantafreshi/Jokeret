@@ -1,0 +1,295 @@
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <script>
+     if(localStorage.getItem('id')){
+         window.open("/pages/home.html","_self");
+     }else{
+          localStorage.getItem('language')==='fa' || localStorage.getItem('language')==='ar'  ?window.open(`/pages/${localStorage.getItem('language')}/login.html`,"_self"):0; 
+     }        
+   </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Jokeret | Login</title>
+  <meta name="description" content="Login to Jokeret app,Hokm online, Shelem online and Tarneeb">
+  <!-- materialize icons, css & js -->
+  <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link type="text/css" href="/css/styles.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8J3FCS630"></script>
+
+  <link rel="manifest" href="/manifest.json">
+  <!-- IOS support-->
+  <!--  برای هر نسخه موبایل باید آیکون ها ادد شود-->
+  <link rel="apple-touch-icon" href="/icons/icon-96.png">
+  <meta name="apple-mobile-web-app-status-ba" content ="#053f5e">  <!-- header Color IOS -->
+   <!-- <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script> -->
+  <script type="text/javascript" src="/js/bone/lan/language.js"></script>
+
+  
+  <script>
+          let local;
+      fetch('https://www.cloudflare.com/cdn-cgi/trace')
+        .then(function(response) {
+          response.text().then(function(text) {
+            
+            local = text.slice((text.indexOf('loc')+4),
+              (text.indexOf('loc')+6))
+            ips=text.slice((text.indexOf('ip')+4),
+              (text.indexOf('ts')))
+            
+            done();
+          });
+        });
+        function done()
+        {
+          console.log(local);
+              if (local==='IR'){
+                window.location ='/pages/login_.html' 
+              }else{
+                switch(localStorage.getItem('language')){
+                    case'ar':
+                      window.location ='/pages/ar/login.html';
+                    break;
+                    case 'fa':
+                      window.location ='/pages/fa/login.html'
+                    break;
+
+              }
+       }
+  
+    }
+	</script>
+     <script src="https://www.gstatic.com/firebasejs/ui/4.0.0/firebase-ui-auth__en.js"></script>
+     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.0.0/firebase-ui-auth.css" />
+
+  
+</head>
+<body class=" indigo lighten-5" id="body">
+
+  <!-- top nav 2 -->
+<header>
+  <nav class="z-depth-0" id="head-nav">
+    <script type="text/javascript" src="/js/bone/head.js"></script>
+    <script> fun_head_show(true); </script>
+  </nav>
+</header>
+
+  <!-- side nav 2 -->
+   <ul id="side-menu" class="sidenav side-menu ">
+    <script type="text/javascript" src="/js/bone/side-menu.js"></script>
+    <script> fun_side_menu(true); </script>
+  </ul>
+
+
+    <!-- content -->
+    <div class="blue-grey-text text-lighten-3" >
+
+      <div id='login-section' class="center">
+
+        <h1 class="center" ><i  id="login-icon" class="material-icons">account_box</i></h1>
+        
+          <div id="container">
+            <div id="loading">Loading...</div>
+            <div id="loaded" class="hidden">
+              <!--user logined-->
+            <div id="main">
+              <div id="user-signed-in" class="hidden">
+                <div id="user-info">
+                  <div id="photoURL"></div>
+                  <div id="uid"></div>
+                  <div id="name"></div>
+                  <div class="clearfix"></div>
+                </div>
+                <p>
+                  <button id="sign-out">Sign Out</button>
+                
+                </p>
+              </div>
+              <div id="user-signed-out" class="hidden">
+                <div id="firebaseui-spa">
+                  <div id="firebaseui-container"></div>
+                </div>
+              </div>
+            </div>
+            <div class='s12'>
+              
+            </div>
+
+          </div>
+        <h6 class="center blue-grey-text text-lighten-4"> <b>You can sign in</b> with your phone number or Google Account.</h6>
+      </div>
+    </div>
+  
+ <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js'></script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/scrpt.js"></script>
+
+  <!-- firebase auth section -->
+ <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase.js"></script>
+ <script src="/js/bone/auth.js"></script>
+  <script type="text/javascript" src="https://raw.githack.com/colyseus/colyseus.js/0.12.0/dist/colyseus.js"></script>
+ 
+<!-- firebase end section -->
+
+      <script>
+          var host = window.document.location.host.replace(/:.*/, '');
+          var roomPub 
+          var client = new Colyseus.Client(location.protocol.replace("http", "ws") + "//" + host + (location.port ? ':'+location.port : ''));
+          client.create("control").then(room => {
+            console.log(room); 
+            console.log(room.roomId)
+            roomPub=room;
+            room.onStateChange.once(function(state) {
+                console.log("initial room state:", state);
+            });
+              roomPub.onMessage(function(message) {
+                        console.log(`message`,message);
+                      
+                        if(message.uid!=='404'){
+                          if(message.new){
+                            console.log('[login]new user',message);
+                            localStorage.setItem('gid',message.gid);
+                            localStorage.setItem('id',message.uid);
+                            localStorage.setItem('coin',message.coin);   
+                            login_user_ui()
+                            window.open("/pages/play.html","_self");                            
+                          }else{
+                            console.log('[login]not new user',message);
+                            localStorage.setItem('gid',message.gid);
+                            localStorage.setItem('id',message.uid); 
+                            localStorage.setItem('name',message.name); 
+                            localStorage.setItem('image',message.image); 
+                            localStorage.setItem('coin',message.coin); 
+                            login_user_ui();
+                            window.open("/pages/play.html","_self"); 
+                          }
+                        }
+                });
+          });
+          
+        
+          const country =localStorage.getItem('country')
+            uid_public="789878";
+                  var credential ;
+                  var isNewUser ;             
+            console.log(uid_public);
+          function getUiConfig() {
+            return {
+              'callbacks': {
+                'signInSuccessWithAuthResult': function(authResult, redirectUrl) {
+                  user = authResult.user;
+                  credential = authResult.credential;
+                  isNewUser = authResult.additionalUserInfo.isNewUser;
+                  providerId = authResult.additionalUserInfo.providerId;
+                  operationType = authResult.operationType;
+                  console.log(authResult.additionalUserInfo);
+                  handleSignedInUser(user);
+                  
+                  return false;
+                }
+              },
+              'signInFlow': 'self',
+              'signInOptions': [
+            
+                    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                {
+                  provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+                  defaultCountry: country, 
+
+                }
+                  ],
+              'tosUrl': 'https://www.google.com'
+            };
+          }
+          var ui = new firebaseui.auth.AuthUI(firebase.auth());
+          var handleSignedInUser = function(user) {
+
+
+          
+
+
+         //   document.getElementById('user-signed-in').style.display = 'block';
+
+
+
+              if(isNewUser)  {
+                    
+                    localStorage.setItem("new",true);
+                    console.log('new user');
+                    localStorage.setItem("id",`${user.uid}`);
+                  //send message to server
+      
+
+                        const datad =[`${user.uid}`,`${user.displayName}`,`${user.photoURL}`];
+                        console.log(datad);
+                        // send data to room
+                        console.log('typeof', user.displayName );
+                        //room.send({ login:`${datad}`  });
+                        roomPub.send({ login: {uid:user.uid , name:user.displayName ,image:user.photoURL , phoneNo:user.phoneNumber,new:true}  });
+                          console.log('preload run');
+                          document.getElementById('login-section').innerHTML = preloader();
+                  
+                        localStorage.setItem("id",user.uid);
+                        //user.displayName!==null  ?  localStorage.setItem("name",user.displayName) :localStorage.setItem("name",'Puddin') ;
+                        user.photoURL!==null ?  localStorage.setItem("image",`${user.photoURL}`) :  localStorage.setItem("image",'/img/logo/joker_00.jpg');;
+                      // window
+                      //.open("/pages/profile.html","_self");
+                
+              }//end if
+              else
+              {
+                roomPub.send({ login: {uid:user.uid,new:false}  });
+                  console.log('preload run');
+                  document.getElementById('login-section').innerHTML = preloader();
+                      
+                localStorage.setItem("id",user.uid);
+                //user.displayName!==null  ?  localStorage.setItem("name",user.displayName) :localStorage.setItem("name",'Puddin') ;
+                //user.photoURL!==null ?  localStorage.setItem("image",`${user.photoURL}`) :  localStorage.setItem("image",'/img/logo/joker_00.jpg');
+              /// window
+              //.open("/pages/home.html","_self");
+              }
+          
+          };
+          lang='ar';
+          var handleSignedOutUser = function() {
+            document.getElementById('user-signed-in').style.display = 'none';
+            document.getElementById('user-signed-out').style.display = 'block';
+            ui.start('#firebaseui-container', getUiConfig());
+          };
+          
+          firebase.auth().onAuthStateChanged(function(user) {
+          
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('loaded').style.display = 'block';
+            user ? handleSignedInUser(user) : handleSignedOutUser(); 
+          
+              });
+
+          var initApp = function() {
+            document.getElementById('sign-out').addEventListener('click', function() {
+              firebase.auth().signOut().then(function(){
+                localStorage.setItem("point",'10'); 
+                localStorage.setItem("exp",'0'); 
+                localStorage.removeItem('id');
+                localStorage.removeItem('id');
+                localStorage.removeItem('image');
+                localStorage.removeItem('coin');
+                localStorage.removeItem('name');
+                siede_menu_log(false);
+              })
+            });
+          };
+
+          window.addEventListener('load', initApp);
+
+
+    </script>
+     <script src='js/local.js'></script>
+</body>
+</html>

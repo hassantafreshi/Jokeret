@@ -1,0 +1,156 @@
+<html lang="ar">
+<head>
+  <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase.js"></script>
+  <script>
+    let idroomInvited;
+    console.log(`room id Receiveis ${localStorage.getItem("inviteRoomId")}`)
+    localStorage.getItem("inviteRoomId")!='0' ? idroomInvited = localStorage.getItem("inviteRoomId") :1;
+    
+  </script>
+  <!-- <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script> -->
+  <script type="text/javascript" src="/js/bone/lan/ph.js"></script>
+  <script type="text/javascript" src="/js/bone/lan/language.js"></script>
+  <script src="/js/bone/auth.js"></script>
+ 
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>جو كرت | حکم</title>  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <!-- materialize icons, css & js -->
+  <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" href="/css/styles.css" rel="stylesheet">
+  <link type="text/css" href="/css/lan-ar.css" rel="stylesheet">
+  <script type="text/javascript" src="/js/ie.js"></script> <!--  IE checker-->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8J3FCS630"></script>
+      <!-- colyseus.js client -->
+    <!-- -->
+    <!-- colyseus.js client -->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+        const lan =localStorage.getItem('language');
+        console.log(`language is ${lan}`);
+        if( localStorage.getItem('language')!='ar'){
+          lan ==='en'? window.open(`/index.html`,"_self"): window.open(`/pages/${localStorage.getItem('language')}/home.html`,"_self");
+        }
+
+       
+        
+    </script>
+
+
+   <script type="text/javascript" src="/js/cl-game.js"></script>
+    
+</head>
+<body class=" indigo lighten-5" id="body">
+
+   <!-- top nav 2 -->
+    <header>
+    <nav class="z-depth-0" id="head-nav">
+        <script type="text/javascript" src="/js/bone/head.js"></script>
+        <script> fun_head_show(true); </script>
+    </nav>
+    </header>
+
+  
+  <!-- side nav 2 -->
+   <ul id="side-menu" class="sidenav side-menu ">
+    <script type="text/javascript" src="/js/bone/side-menu.js"></script>
+    <script> fun_side_menu(true); </script>
+  </ul>
+<script>
+function language_select_fun(c){
+    console.log.log('fun language select :'+c);
+}
+</script>
+
+  <!-- content -->
+  <div class="body-rtl" id="content-home">
+        <SECTION class="yellow" id="content-home-section-one">
+        <div class="message-section">
+        
+        <section>
+         <a  id='home-link' href='/pages/play.html'>
+        <div class="row">
+        <header class="box-header">
+              <div class="col l4 s4 m4 xl4"></div>
+          <div class="col l4 s4 m4 xl4 z-depth-1" id="end-game-box-medal">
+            <h3 class="center" id="end-game-box-medal-logo">👑<h3>
+          </div>
+        <div class="col l4 s4 m4 xl4 "></div>
+        </header>
+        </div>
+        <div class="row">
+
+        <div class="main-content">
+        <ul class="media-list site-features">
+        <li class="media">
+        <div class="pull-right">
+        <div class="media-object">
+        <i class="material-icons">sentiment_very_satisfied</i>
+        </div>
+        </div>
+        <div class="media-body">
+        <h2 class="media-heading">لعب مع أصدقائك</h2>
+          <p class='media-subtitle'> <span>لعب على الانترنت مع أصدقائك </span></p>
+        </div>
+        </li>
+        <li class="media">
+        <div class="pull-right">
+        <div class="media-object">
+        <i class="material-icons">access_time</i>
+        </div>
+        </div>
+        <div class="media-body">
+            <h2 class="media-heading">لعب مجاني</h2>
+            <p class='media-subtitle'>الألعاب والبطولات تعمل 24/7</p>
+            </div>
+        </li>
+        <li class="media">
+        <div class="pull-right">
+        <div class="media-object">
+        <i class="material-icons">cloud_done</i>
+        </div>
+        </div>
+        <div class="media-body">
+            <h2 class="media-heading">لا يوجد تحميل مطلوب</h2>
+            <p class='media-subtitle'>مجرد تسجيل واللعب!</p>
+            </div>
+        </li>
+        </ul>        
+        </div>
+        <br>
+        <div class="divider"></div>
+         <div class="center "> <a id="home-btn-start" class='btn  black-text' href='/pages/play.html'> العب الان</a> <div>
+        </div>
+      </a>
+
+
+
+</section>
+        </SECTION>
+  </div>
+
+
+
+
+  </div>
+
+ 
+  <script type="text/javascript" src="/js/browser.js"></script> <!-- check browser versuion -->
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js'></script>
+  <script src="/js/scrpt.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/app.js"></script>
+ 
+<script> gtag('event', 'home_ar'); </script>
+</body>
+</html>

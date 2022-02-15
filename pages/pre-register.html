@@ -1,0 +1,311 @@
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Jokeret | Setting</title>
+  <!-- materialize icons, css & js -->
+  <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link type="text/css" href="/css/styles.css" rel="stylesheet">
+  <link type="text/css" href="/css/login.css" rel="stylesheet">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8J3FCS630"></script>
+  <script type="text/javascript" src="/js/browser.js"></script>
+
+  <link rel="manifest" href="/manifest.json">
+  <!-- IOS support-->
+  <!--  برای هر نسخه موبایل باید آیکون ها ادد شود-->
+  <link rel="apple-touch-icon" href="/icons/icon-96.png">
+  <meta name="apple-mobile-web-app-status-ba" content ="#053f5e">  <!-- header Color IOS -->
+  <script type="text/javascript" src="/js/bone/lan/ph.js"></script>
+  <script type="text/javascript" src="/js/bone/lan/language.js"></script>
+ 
+
+  <script>
+    
+   if(localStorage.getItem('id').lastIndexOf('guest-')!=-1){
+
+      if(localStorage.getItem('country'))
+       switch(localStorage.getItem('language')){
+        case'ar':
+          window.location ='/pages/ar/login.html';
+        break;
+    
+        case 'fa':
+          window.location ='/pages/fa/login.html';
+        break;
+        default:
+         window.location ='/pages/login.html';
+
+      }
+      console.log('[789]not login');
+    }else{
+       console.log('[789] login');
+    }
+	</script>
+     
+    
+
+  
+</head>
+<body class=" indigo lighten-5" id="body">
+
+  <!-- top nav 2 -->
+<header>
+  <nav class="z-depth-0" id="head-nav">
+    <script type="text/javascript" src="/js/bone/head.js"></script>
+    <script> fun_head_show(true); </script>
+  </nav>
+</header>
+
+  <!-- side nav 2 -->
+   <ul id="side-menu" class="sidenav side-menu ">
+    <script type="text/javascript" src="/js/bone/side-menu.js"></script>
+    <script> fun_side_menu(true); </script>
+  </ul>
+
+
+    <!-- content -->
+    <div class="center blue-grey-text text-lighten-3"  id="content">
+
+         
+          
+            <div class="col s12 row">
+              <br>
+                <div class="col s2"></div>
+                  <div class="input-field col s8">
+                      <i class="material-icons prefix">account_circle</i>
+                      <input id="username" type="text" class="validate center">
+                      <label for="username" id="username_for">Name</label>
+                  </div>
+                  <div class="col s2"></div>
+                
+                  <div class="row" id="row2">
+                    <div class="col s2"></div>
+                    <div class="col s12 center ">                                          
+                        
+                          <label for="imagefile" class="btn-large indigo darken-4" id="imagefile_for">Upload Photo</label>
+                          <input class="" type="file" accept="image/x-png,image/jpeg"  id="imagefile" style="display: none">
+                      
+                    </div>
+                    <div class="col s2"></div>
+                  </div>
+                  <div class="row col s12">
+                       <p id="title-image-profile">Image Profile<p>
+                      <canvas id="canvas" width=96 height=96></canvas>
+                      <textarea id="file_output" hidden></textarea>
+                  </div>              
+                  <div class="col s12"> <a onClick="save_()" class=' btn-large red' id="save-btn">Save</a>
+      
+          </div>
+            
+       
+
+    </div>
+
+
+
+ 
+    
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js'></script>
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/ratchet/2.0.2/css/ratchet.css" rel="stylesheet"/>
+  <script src="/js/scrpt.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/app.js"></script>
+ <script src="/js/bone/auth.js"></script>
+  <!-- firebase auth section -->
+
+  <script type="text/javascript" src="https://raw.githack.com/colyseus/colyseus.js/0.12.0/dist/colyseus.js"></script>
+<!-- firebase end section -->
+
+      <script>
+        const id=[`username_for`,`imagefile_for`,`title-image-profile`,`save-btn`];
+        if(localStorage.getItem("language")==="fa" ){
+
+        document.getElementById('content').className +=" body-rtl font-persian ";
+        document.getElementById('side-menu').className +=" font-persian ";
+    
+      
+        for (let i  of id){
+          console.log(`i:${i} va:[${trans(document.getElementById(i).innerHTML)}]`)
+          document.getElementById(i).innerHTML =trans(document.getElementById(i).innerHTML) ;
+        }
+    }
+    if(localStorage.getItem("language")==="ar" ){
+      
+        document.getElementById('content').className +=" body-rtl font-arabic ";
+         document.getElementById('side-menu').className +=" font-arabic ";
+       
+        
+        for (let i  of id){
+          
+          document.getElementById(i).innerHTML =trans(document.getElementById(i).innerHTML) ;
+          
+        }
+    }
+
+      document.getElementById('username').value=localStorage.getItem('name');
+
+      var roomP;
+      var canvas=document.getElementById("canvas");
+      var ctx=canvas.getContext("2d");
+      var cw=canvas.width;
+      var ch=canvas.height;
+      var maxW=96;
+      var maxH=96;
+
+      var input = document.getElementById('imagefile');
+      var output = document.getElementById('file_output');
+      var host = window.document.location.host.replace(/:.*/, '');
+      var client = new Colyseus.Client(location.protocol.replace("http", "ws") + "//" + host + (location.port ? ':'+location.port : ''));
+          client.create("control").then(room => {            
+            console.log(room);
+            console.log(room.roomId)
+            roomP=room;
+            room.onStateChange.once(function(state) {
+                console.log("initial room state:", state);
+            });
+            room.onMessage(function(message) {
+                           if(message.meta=='updateSetting')
+                           {
+                             console.log(message);
+                              if(message.c==1){
+                                // کاربر به صفحه تکمیل اطلاعات پاس داده شود
+                                 localStorage.setItem('name',message.name);
+                                 localStorage.setItem('image',message.img);
+                                 localStorage.getItem('event','refreshHard');
+                                 window.open('/pages/play.html?','_self');
+                              }else{
+                                 M.toast({html: ''+`${trans(message.m)}`+'' ,classes:' red darken-1' });
+                                 document.getElementById('body').className='yellow lighten-2';
+                                 input='';
+                                 output=''
+                              }
+                           }
+
+
+                       
+            });
+
+
+           
+          });
+
+      input.addEventListener('change', handleFiles);
+
+      function handleFiles(e) {
+        var img = new Image;
+        img.onload = function() {
+          if (canvas.toDataURL("image/jpeg",0.5)){
+            var iw=img.width;
+            var ih=img.height;
+            var scale=Math.min((maxW/iw),(maxH/ih));
+            var iwScaled=iw*scale;
+            var ihScaled=ih*scale;
+            canvas.width=iwScaled;
+            canvas.height=ihScaled;
+            ctx.drawImage(img,0,0,iwScaled,ihScaled);
+            output.value = canvas.toDataURL("image/jpeg",0.5);
+            console.log( output.value);
+           
+          }
+        }
+        output.value=  canvas.toDataURL("image/jpeg",0.5);
+        img.src = URL.createObjectURL(e.target.files[0]) ? URL.createObjectURL(e.target.files[0]) : 0;
+      }
+
+//makeImageProfile();
+function makeImageProfile(){
+
+const color=['#FFD600','#F57F17',"#FFF59D","#AEEA00","#C5E1A5","#E0F2F1","#00B8D4","#01579B","#D500F9","#C51162","#FF80AB","#F48FB1","#D50000","#B71C1C",]
+const text=['']
+const fontcolor= Math.floor(Math.random() * 11);
+let check = true;
+let background=0;
+background=Math.floor(Math.random() * 11);
+background= background != fontcolor ? background : Math.floor(Math.random() * 11) ;
+
+let canvas = document.getElementById("canvas");
+let ctx = canvas.getContext("2d");
+ctx.fillStyle = color[background];
+ctx.rect(0, 0, 96, 96);
+ctx.fill();
+ctx.font = 'bold 100px Open Sans';
+ctx.fillStyle = color[fontcolor];
+ 
+    const r=makeid(1);
+    checkChar(r) ? ctx.fillText(r,20,83) : ctx.fillText(r,10,80)
+    const dataURL = canvas.toDataURL();
+    output.value =dataURL;
+//console.log(dataURL);
+}
+
+function makeid(length) {
+   let result = '';
+   let name =document.getElementById('username').value;
+   console.log(name)
+   if(name){
+     result = name[0];
+   }else{
+   const characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+   const charactersLength = characters.length;
+   for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+   }}
+   return result;
+}
+
+function checkChar(chr){
+	const chrs ='آFI1234567890هذدلظورزطم';
+	let r = false;
+	for(var i = chrs.length ; i>-1 ; i--)
+	{
+		if(chrs[i] == chr){
+		r=true;
+		}		
+	}
+	return r;
+}
+const nameEvent = document.getElementById('username');
+
+nameEvent.addEventListener('input', makeImageByName);
+
+function makeImageByName(e) {
+ !document.getElementById('imagefile').value ? makeImageProfile() :0;
+}
+
+
+function save_(){
+  console.log('save clicked')
+  const canvas = document.getElementById("canvas");
+  const dataURL = canvas.toDataURL();
+  const name =document.getElementById('username').value;
+  console.log(dataURL)
+ if(name.length<5 || name.length>13){
+   // M.toast({html: `${trans('Friend Request sent.')} `, classes:' blue darken-1'});
+    M.toast({html: ''+`${trans('Name must be more than 6 characters and less than 12 characters')} 🤓`+'' ,classes:' red darken-1' });
+ }else if(!dataURL){
+    M.toast({html: ''+`${trans('Please Uplaod your image')} 😲`+'', classes:' red darken-1'});
+ }else{
+   M.toast({html: ''+`${trans('Please wait,Image is uploading')} 👍`+'', classes:' red darken-1'});
+   document.getElementById('content').innerHTML=preloader();
+   roomP.send( {act:'preregister',id:localStorage.getItem('id'),name:name,image:output.value}  );
+ //  window.open("/pages/play.html","_self") ;  
+   
+ }
+
+}
+    localStorage.getItem("language")==="fa" || localStorage.getItem("language")==="ar" ? document.getElementById("content").className +=" body-rtl" :0 ;
+    if(localStorage.getItem("language")==="fa"){
+      document.getElementById("content").className +=" body-rtl";
+    }else if(localStorage.getItem("language")==="ar"){
+      document.getElementById("content").className +=" body-rtl";
+    }
+    fun_setting_get_data();
+    gtag('event', 'edit_profile');
+    </script>
+    
+</body>
+</html>

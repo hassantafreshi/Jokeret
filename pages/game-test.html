@@ -1,0 +1,747 @@
+<html lang="en">
+<head>
+<!-- firebase auth section -->
+ <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase.js"></script>
+ <script>
+  let idroomInvited;
+  console.log(`room id Receiveis ${localStorage.getItem("inviteRoomId")}`)
+  localStorage.getItem("inviteRoomId") ? idroomInvited = localStorage.getItem("inviteRoomId") :1;
+
+</script>
+ 
+ <!-- <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script> -->
+ <script type="text/javascript" src="/js/bone/lan/language.js"></script>
+<!-- firebase end section -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="/js/gifts.js"></script>
+  <title>Jokeret|>Play Online Cards Game</title> 
+  <meta name="description" content="Jokeret app,Play Hokm online - حکم آنلاین">
+  <!-- materialize icons, css & js -->
+  <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" href="/css/styles.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8J3FCS630"></script>
+  <!-- -->
+  <script type="text/javascript" src="/js/bone/lan/ph.js"></script>
+  <script type="text/javascript" src="/js/bone/lan/language.js"></script>
+  <link rel="manifest" href="/manifest.json">
+      <script>idroomInvited ? localStorage.removeItem("inviteRoomId") :1; </script>
+      <script> localStorage.setItem('sid','0') </script>
+      <script type="text/javascript" src="/js/browser.js"></script> <!-- check browser versuion -->
+      <script type="text/javascript" src="/js/game/single-game/core.js"></script>
+      <script type="text/javascript" src="/js/cl-game.js"></script>
+      <script type="text/javascript"  src="/js/modal.js"></script>
+      
+     
+     <!-- colyseus.js client -->
+    <script type="text/javascript" src="https://raw.githack.com/colyseus/colyseus.js/0.12.0/dist/colyseus.js"></script>
+        
+  <!--  IOS support-->
+  <!--  برای هر نسخه موبایل باید آیکون ها ادد شود-->
+  <link rel="apple-touch-icon" href="/icons/icon-96.png">
+  <meta name="apple-mobile-web-app-status-ba" content ="#053f5e">  <!-- header Color IOS -->
+   <script>
+      var host = window.document.location.host.replace(/:.*/, '');
+      var client = new Colyseus.Client(location.protocol.replace("http", "ws") + "//" + host + (location.port ? ':'+location.port : ''));
+      var room;
+      console.log(client,'client');
+
+        // پیوست به یک اتاق
+    function join () {
+        console.log('user joined')
+            room =client.joinOrCreate("battle", {/* options */}).then(room => {
+            
+          console.log("joined successfully", room.id);
+        }).catch(e => {
+          console.error("join error", e);
+        });
+     
+    }
+
+   
+
+   </script>
+</head>
+<body class=" indigo lighten-5" id="body">
+
+  <!-- top nav 2 -->
+<header>
+  <nav class="z-depth-0" id="head-nav">
+    <script type="text/javascript" src="../js/bone/head.js"></script>
+    <script> fun_head_show(true); </script>
+  </nav>
+</header>
+
+  <!-- side nav 2 -->
+   <ul id="side-menu" class="sidenav side-menu ">
+    <script type="text/javascript" src="/js/bone/side-menu.js"></script>
+    <script> fun_side_menu(true); </script>
+  </ul>
+
+
+  <!-- content -->
+  <div class="indigo lighten-5 " id="content">
+       <div class=".show-on-large col l2 " algin="center" id="box-left">
+       </div>
+       <div class="col l8  " id="container">
+     
+               <div class="desk grey-text  col l12">
+                  <!-- <div class="ads header"> <img src="https://lh5.ggpht.com/XJZJYLBAMMyyV3e0oY1jTiBxmA17G4BI_2KLG3MlEsVFUjHBBB1VHy1SgCd9gWwbZnlitH3T=w234"> </div> -->
+                   <div class="row row-first-deck" id="row-1">
+                       <div class="col s3 m3 l3 xl3 center" id="row-1-col-1">
+                       <h5 id="hokm-show" class="white"> s</h5> 
+                       </div>
+                       <div class="col s2 m2 l2 xl2 center" id="row-1-col-2">
+                         
+                       </div>
+                       <div class="col s2 m2 l2 xl2 center king-container" id="player-seat-3">
+                         <img src="${player3.image==="d" || player3.image==="undefined" || player3.image==undefined  ? '/img/logo/joker_00.jpg' :player3.image}" alt="${player3.name}" class=" image-profile-deck circle " onclick="show_profile('${player3.sid}')">
+                         <div class="countdown center" id="countdown-3">
+                           <div class="countdown yellow-text" id="countdown"> </div>
+                         </div>
+                         <div class="king-logo" id="king-player-seat-3"></div>
+                         <div class="turn-logo" id="turn-player-3"></div>
+                       </div>
+                       <div class="col s2 m2 l2 xl2 center" id="row-1-col-4"></div>
+                       <div class="col s3 m3 l3 xl3 center" id="row-1-col-5">    
+                       <div id="table-points-hands">
+                           <div id="row-point" class="yellow-text"><span id="points">Points:</span><span id='hand-no'> 0-0</span> </div>
+                           <div id="row-point" class="yellow-text"><span id="hands">Hands:</span> <span id='point-no'> 0-0</span> </div>
+                         </div></div>
+                   </div>    
+                   
+                   
+                   <div class="row row-second-deck king-container" id="row-3">
+                       <div class="col s2 m2 l2 xl2 " id="row-3-col-left">
+                         <img src="${player2.image==="d" || player2.image==="undefined" || player2.image==undefined   ? '/img/logo/joker_00.jpg' :player2.image}" alt="${player2.name}" class=" circle image-profile-deck " onclick="show_profile('${player2.sid}')">
+                         <div class="countdown center" id="countdown-2">
+                           <div class="countdown yellow-text" id="countdown"> </div>
+                         </div>
+                         
+                       
+   
+                         <div class="king-logo" id="king-player-seat-2"></div>
+                         <div class="turn-logo" id="turn-player-2"></div>
+                       </div>
+   
+                       <div class="col s8 m8 l8 xl8 center" id="desk-card">                          
+   
+                             <!-- اگر اسکرین بزرگ بود کلاس نیم card-deck-large بجای بدون لارج اضافه شود-->
+                             <img src="/img/cards/0.svg" id="card-desk-played-2" alt="submit" width="65px" class="responsive-img card-desk-played-2 crdpl">
+                             <img src="/img/cards/0.svg" id="card-desk-played-3" alt="submit" width="65px" class="responsive-img card-desk-played-3 crdpl">
+                             <img src="/img/cards/0.svg" id="card-desk-played-1" alt="submit" width="65px" class="responsive-img card-desk-played-1 crdpl ">
+                             <img src="/img/cards/0.svg" id="card-desk-played-4" alt="submit" width="65px" class="responsive-img card-desk-played-4 crdpl">
+                             
+                       </div>
+                       <div class="col s2 m2 l2 xl2 king-" id="row-3-col-right">
+                         <img src="${player4.image==="d" || player4.image==="undefined" || player4.image==undefined   ? '/img/logo/joker_00.jpg' :player4.image}" alt="${player4.name}" class="  image-profile-deck circle " onclick="show_profile('${player4.sid}')">
+                         <div class="countdown center" id="countdown-4">
+                           <div class="countdown yellow-text" id="countdown"> </div>
+                         </div>
+                       <div class="king-logo" id="king-player-seat-4"></div>
+                       <div class="turn-logo" id="turn-player-4"></div>
+                     </div>
+                   </div>
+                   <div class="row row-fourth-deck" id="row-1">
+                       <div class="col s3 m3 l3 xl3 center" id="row-1-col-1"> </div>
+                       <div class="col s2 m2 l2 xl2 center" id="row-1-col-2">
+                       </div>
+                       <div class="col s2 m2 l2 xl2 center king-container" id="player1-seat">
+                         <img src="${player1.image==="d" || player1.image==="undefined"  || player1.image==undefined ? '/img/logo/joker_00.jpg' :player1.image}" alt="${player1.name}" class=" image-profile-deck circle " onclick="show_profile('${player1.sid}')">
+                         <div class="countdown center" id="countdown-1">
+                           <div class="countdown yellow-text" id="countdown"> </div>
+                         </div>
+                         <div class="king-logo" id="king-player-seat-1"></div>
+                         <div class="turn-logo" id="turn-player-1"></div>
+                       </div>
+                       <div class="col s2 m2 l2 xl2 center" id="row-1-col-4"></div>
+                       <div class="col s3 m3 l3 xl3 center" id="row-1-col-5"></div>
+                   </div>    
+                   <div class="row-cardplayer-deck col l12" id="cardsplayer">
+                     <div class="row center row-cards-1 " id="row-5">
+                           <div class="col s1 m1 l1 xl1 cards" id="card-1">
+                             <button class="game-card-button" id='btn-card-1'  type="submit" onclick="send_card_fun_(1,1)">
+                                 <img id='card-desk-1' src="/img/cards/0.svg" class="myCard-deck" alt="submit" >
+                             </button>
+                           </div>
+                           <div class="col s1 m1 l1 xl1 cards" id="card-2">
+                             <button class="game-card-button" id='btn-card-2'  type="submit" onclick="send_card_fun_(1,2)">
+                                 <img id='card-desk-2' src="/img/cards/0.svg" class="myCard-deck" alt="submit" >
+                             </button>
+                           </div>
+                           <div class="col s1 m1 l1 xl1 cards" id="card-3">
+                             <button class="game-card-button" id='btn-card-3'  type="submit" onclick="send_card_fun_(1,3)">
+                                 <img id='card-desk-3' src="/img/cards/0.svg" class="myCard-deck" alt="submit" >
+                             </button>
+                           </div>
+                           <div class="col s1 m1 l1 xl1 cards" id="card-4">
+                             <button class="game-card-button" id='btn-card-4'   type="submit" onclick="send_card_fun_(1,4)">
+                                 <img id='card-desk-4' src="/img/cards/0.svg" class="myCard-deck" alt="submit" >
+                             </button>
+                           </div>
+                           <div class="col s1 m1 l1 xl1 cards" id="card-5">
+                             <button class="game-card-button" id='btn-card-5'  type="submit" onclick="send_card_fun_(1,5)">
+                                 <img id='card-desk-5' src="/img/cards/0.svg" class="myCard-deck" alt="submit" >
+                             </button>
+                           </div>
+                           <div class="col s1 m1 l1 xl1 cards" id="card-6">
+                             <button class="game-card-button" id='btn-card-6'  type="submit" onclick="send_card_fun_(1,6)">
+                                 <img id='card-desk-6' src="/img/cards/0.svg" class="myCard-deck" alt="submit" >
+                             </button>
+                           </div>
+                     </div>
+                     <div class=" row center row-cards-2 " id="row-6">
+                           <div class="col s1 m1 l1 xl1 cards" id="card-7">
+                             <button class="game-card-button" id='btn-card-7'  type="submit" onclick="send_card_fun_(1,7)">
+                                 <img id='card-desk-7' src="/img/cards/0.svg" class="myCard-deck" alt="submit" >
+                             </button>
+                           </div>
+                           <div class="col s1 m1 l1 xl1 cards" id="card-8">
+                             <button class="game-card-button" id='btn-card-8'  type="submit" onclick="send_card_fun_(1,8)">
+                                 <img id='card-desk-8' src="/img/cards/0.svg" class="myCard-deck" alt="submit" >
+                             </button>
+                           </div>
+                           <div class="col s1 m1 l1 xl1 cards" id="card-9">
+                             <button class="game-card-button" id='btn-card-9'  type="submit" onclick="send_card_fun_(1,9)">
+                                 <img id='card-desk-9' src="/img/cards/0.svg" class="myCard-deck" alt="submit" >
+                             </button>
+                           </div>
+             
+                           <div class="col s1 m1 l1 xl1 cards" id="card-10">
+                             <button class="game-card-button" id='btn-card-10'  type="submit" onclick="send_card_fun_(1,10)">
+                                 <img id='card-desk-10' src="/img/cards/0.svg" class="myCard-deck" alt="submit" >
+                             </button>
+                           </div>
+                           <div class="col s1 m1 l1 xl1 cards" id="card-11">
+                             <button class="game-card-button" id='btn-card-11'  type="submit" onclick="send_card_fun_(1,11)">
+                                 <img id='card-desk-11' src="/img/cards/0.svg" class="myCard-deck" alt="submit" >
+                             </button>
+                           </div>
+                           <div class="col s1 m1 l1 xl1 cards" id="card-12">
+                             <button class="game-card-button" id='btn-card-12'  type="submit" onclick="send_card_fun_(1,12)">
+                                 <img id='card-desk-12' src="/img/cards/0.svg" class="myCard-deck" alt="submit" >
+                             </button>
+                           </div>
+                           <div class="col s1 m1 l1 xl1 cards" id="card-13">
+                             <button class="game-card-button"  id='btn-card-13' type="submit" onclick="send_card_fun_(1,13)">
+                                 <img id='card-desk-13' src="/img/cards/0.svg" class="myCard-deck" alt="submit" >
+                             </button>
+                           </div>
+                     </div>
+                     <div class='row-chat-deck'>
+                   
+                     <div class="fixed-action-btn click-to-toggle ">
+                       <a class="btn-floating  btn-small  orange darken-4">
+                         <i class="large material-icons">chat</i>
+                       </a>
+                       <ul>
+                         <li><a class="btn  orange accent-4" onclick="send_message_fast_fun('Hello')">👋</a></li>
+                         <li><a class="btn  orange accent-4" onclick="send_message_fast_fun('Please play faster')">😫</a></li>
+                         <li><a class="btn  orange accent-4" onclick="send_message_fast_fun('Good Game')">👍</a></li>
+                         <li><a class="btn  orange accent-4" onclick="send_message_fast_fun('😥')">😥</a></li>
+                         <li><a class="btn  orange accent-4" onclick="send_message_fast_fun('cheat')">🕵️</a></li>
+                         <li><a class="btn  orange accent-4"   href="#modal-chat"> 💬</a></li>
+                         <li><a class="btn modal-trigger orange accent-4 white-text" href="#modal-leaveOut" ><i class="small material-icons">backspace</i></a></li>
+                       </ul>
+                     </div>
+                   </div>
+                   </div>
+             </div>
+       </div>
+       <div class=".show-on-large col l2 " id="box-right"></div>  
+     </div>
+
+     
+  </div>
+         <!-- Modal hokm -->
+        <div id="hokm_is" class="modal">
+          <div class="modal-content blue-grey darken-2  yellow-text text-accent-4">
+            <h5 class="center yellow-text" id="ChooseHokm">Choose Hokm:</h5> 
+              <p></br> </p>
+              <div class="row">
+             
+                  <button type="submit"  
+                    class=" col l3 s3  modal-action modal-close" 
+                    id="cards3Button1"
+                    onclick="fun_hokm_is_on(1)"  
+                    style="border: 0; background: transparent" >
+                      <div id='card-forgrand'>
+                        <h1 class='black-text' id='khal-card'> ♠️ </h1>
+                      </div>
+                  </button>
+              
+                  <button type="submit"  
+                    class="col l3 s3  modal-action modal-close " 
+                    id="cards3Button2"
+                    onclick="fun_hokm_is_on(2)"  
+                    style="border: 0; background: transparent" >
+                      <div id='card-forgrand'>
+                        <h1 class='red-text' id='khal-card'> ♥️ </h1>
+                      </div>
+                  </button>
+
+                  <button type="submit"  
+                    class="col l3 s3  modal-action modal-close" 
+                    id="cards3Button3"
+                    onclick="fun_hokm_is_on(3)"  
+                    style="border: 0; background: transparent" >
+                      <div id='card-forgrand'>
+                        <h1 class='red-text' id='khal-card'> ♦️ </h1>
+                      </div>
+                  </button>
+
+                  <button type="submit"  
+                    class="col l3 s3  modal-action modal-close" 
+                    id="cards3Button3"
+                    onclick="fun_hokm_is_on(4)"  
+                    style="border: 0; background: transparent" >
+                      <div id='card-forgrand'>
+                        <h1 class='black-text' id='khal-card'> ♣️ </h1>
+                      </div>
+                  </button>
+
+              </div>
+
+          </div>
+        </div>
+
+   <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+         <!-- Modal gift  -->
+        <div id="modal-gift" class="modal zindex-1005">
+          <div class="modal-content ">
+            <h4>Gifts</h4>
+              <div class="row" id="row-gift-list">
+                <div class='gift-card col s3 l2'>
+                    <button type="submit"  
+                      class="waves-effect waves-light  " 
+                      id="ImReadyButton"
+                      onclick="fun_sendgift('💎')"  
+                      style="border: 0; background: transparent" >
+                        <div id='gift-card-object'>💎</div>
+                    </button>
+                    <p class="gift-card-title" id="gift-card-title">10 coin</p>
+                </div>
+                <div class='gift-card col s3 l2'>
+                  <button type="submit"  
+                    class="waves-effect waves-light  " 
+                    id="ImReadyButton"
+                    onclick="fun_friend_request()"  
+                    style="border: 0; background: transparent" >
+                      <div id='gift-card-object'>💩</div>
+                  </button>
+                  <p class="gift-card-title" id="gift-card-title">10 coin</p>
+                </div>
+                <div class='gift-card col s3 l2'>
+                  <button type="submit"  
+                    class="waves-effect waves-light  " 
+                    id="ImReadyButton"
+                    onclick="fun_friend_request()"  
+                    style="border: 0; background: transparent" >
+                      <div id='gift-card-object'>💙</div>
+                  </button>
+                  <p class="gift-card-title" id="gift-card-title">10 coin</p>
+                </div>
+                <div class='gift-card col s3 l2'>
+                  <button type="submit"  
+                    class="waves-effect waves-light  " 
+                    id="ImReadyButton"
+                    onclick="fun_friend_request()"  
+                    style="border: 0; background: transparent" >
+                      <div id='gift-card-object'>🐪</div>
+                  </button>
+                  <p class="gift-card-title" id="gift-card-title">10 coin</p>
+                </div>
+                <div class='gift-card col s3 l2'>
+                  <button type="submit"  
+                    class="waves-effect waves-light  " 
+                    id="ImReadyButton"
+                    onclick="fun_friend_request()"  
+                    style="border: 0; background: transparent" >
+                      <div id='gift-card-object'>🐼</div>
+                  </button>
+                  <p class="gift-card-title" id="gift-card-title">10 coin</p>
+                </div>
+                <div class='gift-card col s3 l2'>
+                  <button type="submit"  
+                    class="waves-effect waves-light  " 
+                    id="ImReadyButton"
+                    onclick="fun_friend_request()"  
+                    style="border: 0; background: transparent" >
+                      <div id='gift-card-object'>💮</div>
+                  </button>
+                  <p class="gift-card-title" id="gift-card-title">10 coin</p>
+                </div>
+                <div class='gift-card col s3 l2'>
+                  <button type="submit"  
+                    class="waves-effect waves-light  " 
+                    id="ImReadyButton"
+                    onclick="fun_friend_request()"  
+                    style="border: 0; background: transparent" >
+                      <div id='gift-card-object'>🍑</div>
+                  </button>
+                  <p class="gift-card-title" id="gift-card-title">10 coin</p>
+                </div>
+                <div class='gift-card col s3 l2'>
+                  <button type="submit"  
+                    class="waves-effect waves-light  " 
+                    id="ImReadyButton"
+                    onclick="fun_friend_request()"  
+                    style="border: 0; background: transparent" >
+                      <div id='gift-card-object'>🧙</div>
+                  </button>
+                  <p class="gift-card-title" id="gift-card-title">10 coin</p>
+                </div>
+                <div class='gift-card col s3 l2'>
+                  <button type="submit"  
+                    class="waves-effect waves-light  " 
+                    id="ImReadyButton"
+                    onclick="fun_friend_request()"  
+                    style="border: 0; background: transparent" >
+                      <div id='gift-card-object'>🍺</div>
+                  </button>
+                  <p class="gift-card-title" id="gift-card-title">10 coin</p>
+                </div>
+                <div class='gift-card col s3 l2'>
+                  <button type="submit"  
+                    class="waves-effect waves-light  " 
+                    id="ImReadyButton"
+                    onclick="fun_friend_request()"  
+                    style="border: 0; background: transparent" >
+                      <div id='gift-card-object'>☠</div>
+                  </button>
+                  <p class="gift-card-title" id="gift-card-title">10 coin</p>
+                </div>
+                
+       
+              </div>
+          </div>
+        </div>
+
+        <!-- Modal 3cards-play -->
+        <div id="modal-3crads" class="modal">
+          <div class="modal-content purple darken-4  amber-text text-darken-4">
+            <h5 id="3crads-title">Find Joker card and Win</h5> 
+              <p id="3crads-Des"> pay 10, win 30 </p>
+              <div class="row" id="3cards-row">
+             
+                  <button type="submit"  
+                    class=" col l4 s4" 
+                    id="cards3Button1"
+                    onclick="fun_three_cards_play(1)"  
+                    style="border: 0; background: transparent" >
+                      <img src="../img/cards/Card_back.svg" alt=""  class="cards3play z-depth-2" id="cards3play-card1">
+                  </button>
+              
+                  <button type="submit"  
+                    class="col l4 s4 " 
+                    id="cards3Button2"
+                    onclick="fun_three_cards_play(2)"  
+                    style="border: 0; background: transparent" >
+                      <img src="../img/cards/Card_back.svg" alt=""  class="cards3play z-depth-2" id="cards3play-card2">
+                  </button>
+
+                  <button type="submit"  
+                    class="col l4 s4" 
+                    id="cards3Button3"
+                    onclick="fun_three_cards_play(3)"  
+                    style="border: 0; background: transparent" >
+                      <img src="../img/cards/Card_back.svg"  alt=""  class="cards3play z-depth-2" id="cards3play-card3">
+                  </button>
+
+              </div>
+              <h4 id="result-3cards"></h4>
+          </div>
+        </div>
+
+        <!-- Modal Profile -->
+      <div id="modal-profile" class="modal bottom-sheet modal-fixed-footer">
+        <div class="modal-content">
+            <ul class="collection">
+              <li class="collection-item avatar">
+                <img id='m-p-image' src="../img/user02.png" alt="" class="circle">
+                <span class="title"><h5 id='m-p-name-value'> User name <h5></span>
+                  <p id="user-mange">
+                  <button type="submit"  
+                    class="waves-effect waves-light  btn  indigo darken-2" 
+                    id="ImReadyButton"
+                    onclick="fun_friend_request()"  
+                    style="border: 0; background: transparent" >
+                      <i class="material-icons">person_add</i>
+                  </button>
+                  <a class="waves-effect waves-light btn red accent-3 modal-trigger" href="#modal-gift">
+                    <i class="material-icons">local_bar</i>
+                  </a>
+                  </p>
+              </li>
+              <li class="collection-item avatar ">
+                <i class="material-icons circle red">star</i>
+                <span class="title"></span>
+                <p> Coin: <span id='m-p-totalp'></span> </p>
+               <p> <br>Experience:  <span id='m-p-totalex'></span>
+                </p>
+              </li>
+              <li class="collection-item avatar">
+                <i class="material-icons circle indigo">play_arrow</i>
+                <span class="title"></span>
+                <p>Win: <span id='m-p-totalwin'></span>
+                <br>left: <span id='m-p-totalleft'></span>
+                </p>
+              </li>
+              <!--
+               <li class="collection-item avatar">
+               <i class="material-icons circle blue-grey lighten-5">🎖️</i>
+                <span class="title">Medals:</span>
+                
+                <p>
+                <div id='medal-list'>
+                  <div class="preloader-wrapper active">
+                    <div class="spinner-layer spinner-blue-only">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div><div class="gap-patch">
+                        <div class="circle"></div>
+                      </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                <br>
+                </p>
+              </li>
+              -->
+              <li class="collection-item avatar">
+              <i class="material-icons circle orange lighten-3">🎁</i>
+                <span class="title" id="gifts-recived">Gifts received:</span>
+                <p>
+                <div id='gift-list-re'>
+                  <div class="preloader-wrapper active">
+                    <div class="spinner-layer spinner-red-only">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div><div class="gap-patch">
+                        <div class="circle"></div>
+                      </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                <br>
+                </p>
+              </li>
+              <li class="collection-item avatar">
+               <i class="material-icons circle orange lighten-5">🎁</i>
+                <span class="title" id="gifts-sent">Gifts sent:</span>
+                <p>
+                <div id='gift-list-send'>
+                  <div class="preloader-wrapper active">
+                    <div class="spinner-layer spinner-green-only">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div><div class="gap-patch">
+                        <div class="circle"></div>
+                      </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                <br>
+                </p>
+              </li>
+              <!--
+            <li class="collection-item avatar" >
+               <i class="material-icons circle red">people</i>
+                <span class="title">Friends:</span>
+                <p>
+                <div id='friend-list'>
+                  <div class="row">
+                      <div class="col s3 m2 l2 xl1">
+                        <div  class="center" id="image-user-witingPage">
+                            <a class="" id="user-seat-profile-4" href="#" style="border: 0; background: transparent">
+                              <img class=" responsive-img user-img" id="user-seat-image-4" src="/img/logo/joker_00.jpg" width="60" alt=""> 
+                             </a>
+                        </div>
+                      </div>
+                      <div class="col s3 m2 l2 xl1">
+                        <div  class="center" id="image-user-witingPage">
+                            <a class="" id="user-seat-profile-4" href="#" style="border: 0; background: transparent">
+                              <img class=" responsive-img user-img" id="user-seat-image-4" src="/img/logo/joker_00.jpg" width="60" alt=""> 
+                             </a>
+                        </div>
+                      </div>
+                     <div class="col s3 m2 l2 xl1">
+                        <div  class="center" id="image-user-witingPage">
+                            <a class="" id="user-seat-profile-4" href="#" style="border: 0; background: transparent">
+                              <img class=" responsive-img user-img" id="user-seat-image-4" src="/img/logo/joker_00.jpg" width="60" alt=""> 
+                             </a>
+                        </div>
+                      </div>
+                      <div class="col s3 m2 l2 xl1">
+                        <div  class="center" id="image-user-witingPage">
+                            <a class="" id="user-seat-profile-4" href="#" style="border: 0; background: transparent">
+                              <img class=" responsive-img user-img" id="user-seat-image-4" src="/img/logo/joker_00.jpg" width="60" alt=""> 
+                             </a>
+                        </div>
+                      </div>
+                     <div class="col s3 m2 l2 xl1">
+                        <div  class="center" id="image-user-witingPage">
+                            <a class="" id="user-seat-profile-4" href="#" style="border: 0; background: transparent">
+                              <img class=" responsive-img user-img" id="user-seat-image-4" src="/img/logo/joker_00.jpg" width="60" alt=""> 
+                             </a>
+                        </div>
+                      </div>                                           
+                  </div>
+
+                  <div class="preloader-wrapper active">
+                    <div class="spinner-layer spinner-blue-only">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div><div class="gap-patch">
+                        <div class="circle"></div>
+                      </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                <br>
+                </p>
+              </li>
+-->
+            </ul>
+          </div>
+      </div> 
+
+      <!-- Modal Structure -->
+      <div id="eject-user" class="modal">
+        <div class="modal-content">
+          <h4 id="kick-title">kick user:</h4>
+          <p  id="kick-des">Are you sure?</p>
+        </div>
+        <div class="modal-footer" id='eject-user-button'>
+          <button onclick='fun_eject_user()' class="modal-close waves-effect waves-green btn-flat">Yes</button>
+        </div>
+      </div>
+
+
+            <!-- Modal Structure -->
+      <div id="modal-leaveOut" class="modal">
+        <div class="modal-content">
+          <h4 id="leave-title">Leave:</h4>
+          <p id="leave-des">Are you sure?</p>
+        </div>
+        <div class="modal-footer" id='eject-user-button'>
+          <button onclick='fun_leaveOut()' class="modal-close waves-effect waves-green btn-flat">Yes</button>
+        </div>
+      </div>
+      <!-- Modal Share -->
+      <div id="share-modal" class="modal bottom-sheet modal-fixed-footer">
+        <div  class="modal-content">
+            <h6 class="header" id="sh-title">Share:</h6  >
+            <p class="header" id="sh-des">Invite your friends.</p>
+            <ul class="collection">
+              <li onclick='fun_share("telegram" ,1)' class="collection-item avatar">
+                <img src="../img/icons/telegram.svg" alt="" class="circle">  
+                <span class="title bold" id="sh-telegram">Telegram</span>
+                <p id="sh-tg-des">Tap here to invite your friends from Telegram.
+                </p>
+              </li>
+              <li onclick='fun_share("whatsapp",1)' class="collection-item avatar">
+               <img src="../img/icons/whatsapp.svg" alt="" class="circle">
+                <span class="title" id="sh-WA">WhatsApp</span>
+                <p id="sh-wa-des">Tap here to invite your friends from whatsApp.
+                </p>
+              </li>
+              <li onclick='fun_share("facebook",1)' class="collection-item avatar">
+               <img src="/img/icons/facebook.svg" alt="" class="circle">
+                <span class="title" id="sh-fa">Facebook</span>
+                <p id="sh-fa-des">Tap here to invite your friends from Facebook.
+                </p>
+              </li>
+              <li onclick='fun_share("twitter",1)' class="collection-item avatar">
+               <img src="../img/icons/twitter.svg" alt="" class="circle">
+                <span class="title" id="sh-tw">Twitter</span>
+                <p id="sh-tw-des">Tap here to invite your friends from twitter.
+                </p>
+              </li>
+            
+              <li onclick='fun_share("email",1)' class="collection-item avatar">
+               <img src="../img/icons/message.svg" alt="" class="circle">
+                <span class="title" id="sh-em">Email</span>
+                <p id="sh-em-des">Tab here to invite your friends from email.
+                </p>
+              </li>
+              <!--
+              <li onclick='fun_share("copy")' class="collection-item avatar">
+               <img src="../img/icons/link.svg" alt="" class="circle">
+                <span class="title">Copy</span>
+                <input type="hidden" value="" id="copytextinput">
+                <p>Tab here to copy invite link.
+                </p>
+              </li>
+              -->
+            </ul>
+          </div>
+      </div>
+
+
+               <!-- Modal chat -->
+        <div id="modal-chat" class="modal">
+          <div class="modal-content ">
+                <div id="chat-section " class="row ">
+                  <div id="message-area"  style="overflow-y: scroll; height:120px;" class="col l12 m12 s12  green lighten-5 ">
+
+                  </div>  
+
+                  <div id="send-message" class="row col l11 m11 s10">
+                      <input id="chat-room" class=" " type="text" >
+                  </div>
+                        <div class="col l1 m1 s2">
+                        <a onclick='fun_send_message()' class="waves-effect waves-light btn orange lighten-2"><i class="material-icons center">send</i></a>
+                        </div>
+                    </div>
+                </div>
+
+          </div>
+        </div>
+        <!--End Modal chat -->
+        
+
+
+  <!-- add card-room side nav -->
+    <script src="/js/bone/auth.js"></script>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js'></script>
+  <div id="side-form" class="sidenav side-form   indigo lighten-5 ">
+    <script type="text/javascript" src="/js/bone/side-nav-new-game.js"></script>
+    <script> fun_side_nav_new_game(true); </script>
+  </div>
+
+  <script src="/js/ui.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/scrpt.js"></script>
+ 
+   <script type="text/javascript" src="/js/cl-chat.js"></script>
+
+   <script> listGiftsUi();</script>
+   <script>
+    if(localStorage.getItem("language")==="ar" || localStorage.getItem("language")==="fa"){
+      //3crads-title Find Joker card and Win
+      //3crads-Des  pay 10, win 30      
+      document.get
+    }
+   </script>
+</body>
+</html>

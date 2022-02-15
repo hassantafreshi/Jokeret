@@ -1,0 +1,111 @@
+<html lang="en">
+<head>
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Jokeret|Online Cards Game>Profile </title>
+  <!-- materialize icons, css & js -->
+  <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" href="/css/styles.css" rel="stylesheet">
+  <script type="text/javascript" src="/js/materialize.min.js"></script>
+  <script type="text/javascript" src="/js/scrpt.js"></script>
+  <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+  <script type="text/javascript" src="/js/bone/lan/ph.js"></script>
+  <script type="text/javascript" src="/js/bone/lan/language.js"></script>
+
+    <link rel="manifest" href="/manifest.json">
+      <!-- IOS support-->
+ 
+  <link rel="apple-touch-icon" href="/icons/icon-96.png">
+  <meta name="apple-mobile-web-app-status-ba" content ="#053f5e">  <!-- header Color IOS -->
+</head>
+<body class=" indigo lighten-5" id="body">
+
+  <!-- top nav 2 -->
+  <nav class="z-depth-0" id="head-nav">
+    <script type="text/javascript" src="/js/bone/head.js"></script>
+    <script> fun_head_show(true); </script>
+  </nav>
+
+  <!-- side nav 2 -->
+   <ul id="side-menu" class="sidenav side-menu ">
+    <script type="text/javascript" src="/js/bone/side-menu.js"></script>
+    <script> fun_side_menu(true); </script>
+  </ul>
+
+ <script>
+
+     
+
+ </script>
+  <!-- content -->
+  <div class="container grey-text" id="content">
+  <a class="btn" onClick="message_box_first_time_show()"> test </a>
+   <div class="message-box-over z-index: 9999;">
+            <div class="container col l6 s10  row " id="container" onClick='fun_side_menu_go("earn-coin")'>
+              <div class="end-game z-depth-2 yellow accent-3 grey-text  col l6 s12" id="game-message-box">
+                <div class="row" id="end-game-box-first-row">
+                  <div class="col l4 s4 m4 xl4"></div>
+                  <div class="col l4 s4 m4 xl4 z-depth-1" id="game-message-box-head">
+                  <h3 class="center" id="end-game-box-medal-logo">💰<h3>
+                  </div>
+                  <div class="col l4 s4 m4 xl4 "></div>
+                </div>
+                <div class="row" id="end-game-box-second-row">
+                  <div class="col s12 l12 m12 xl12">
+                    <h2 class="center red-text " id="end-game-box-title"></h2>                    
+                  </div>
+                </div>
+                <div  class="row" id="end-game-box-third-row">                    
+                    <div class="center col s12 m12 l12 xl12" >
+                      <div class="center col s12 m12 l12 xl12 z-depth-1" id="game-message-box-M">
+                        <h2 class="center" id="game-message-box-des" onClick='fun_side_menu_go("earn-coin")'>🤖 <span id="end-game-box-point-box-coin-nuumber">${trans('You need')} ${no} ${trans('Coins for play in this room')}</span></h2>
+                 
+                      </div>
+                      <div class="center col s10 m10 l10 xl10 z-depth-1 " id="end-game-box-point-box-title-box" >
+                          <h6 class="center" id="game-message-box-down-box-me"><span id="end-game-box-point-box-exp-nuumber">🤷</span></h6>
+                      </div>                                            
+                    </div>               
+                </div>
+                <div class="row" id="end-game-box-fourth-row">
+                </div>
+            </div>
+            <a onClick='fun_side_menu_go("earn-coin")' >
+              <div class="center col s3 m3 l3  xl3 z-depth-2" id="end-game-box-back-loby">
+                  <div class=" material-icons " id="end-game-box-loby-back-icon"> 
+                    close
+                  </div>
+              </div>
+            </a>            
+      </div>
+    </div>
+      
+  </div>
+
+ 
+ <!-- <script src="/js/_con.js"></script>
+  <script type="text/javascript" src="/js/local.js"></script> -->
+  <script src="/js/ui.js"></script>
+  <script src="/js/app.js"></script>
+ <script src="/js/scrpt.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase.js"></script>
+
+  <script type="text/javascript" src="https://raw.githack.com/colyseus/colyseus.js/0.12.0/dist/colyseus.js"></script>
+ <script src="/js/bone/auth.js"></script>
+
+   <script src="/js/db.js"></script>
+   <script src="/js/message-box.js"></script>
+ <script>
+
+/*
+ mycar = new cnctn(window.location.pathname);
+ console.log(`page>>>`,mycar);
+ */
+ </script>
+
+
+</body>
+</html>

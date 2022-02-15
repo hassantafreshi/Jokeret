@@ -1,0 +1,128 @@
+<html lang="fa">
+<head>
+ <script>
+  let idroomInvited;
+  console.log(`room id Receiveis ${localStorage.getItem("inviteRoomId")}`)
+  localStorage.getItem("inviteRoomId") ? idroomInvited = localStorage.getItem("inviteRoomId") :1;
+ 
+</script>
+ <!-- <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script> -->
+ <script type="text/javascript" src="/js/bone/lan/language.js"></script>
+<!-- firebase end section -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="/js/gifts.js"></script>
+  <title>جوکرت | اشتراک گذاری بازی جوکرت</title>
+  <meta name="description" content="اشتراک گذاری اپ جوکرت شبکه بازی آنلاین:حکم،شلم،طارنیب">
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <!-- materialize icons, css & js -->
+  <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" href="/css/styles.css" rel="stylesheet">
+  <link type="text/css" href="/css/lan-fa.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8J3FCS630"></script>
+ 
+  <link rel="manifest" href="/manifest.json">
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js'></script>
+   <script type="text/javascript" src="/js/bone/lan/ph.js"></script>
+   <script type="text/javascript" src="/js/bone/lan/language.js"></script>
+   <script src="/js/bone/auth.js"></script>
+    <script>
+        switch(localStorage.getItem('language')){
+            case'ar':
+              window.location ='/pages/ar/share.html';
+            break;
+        
+            case 'en':
+              window.location ='/pages/en/share.html'
+            break
+          }
+    </script>
+      
+  <!--
+
+     IOS support-->
+  <!--  برای هر نسخه موبایل باید آیکون ها ادد شود-->
+  <link rel="apple-touch-icon" href="/icons/icon-96.png">
+  <meta name="apple-mobile-web-app-status-ba" content ="#053f5e">  <!-- header Color IOS -->
+</head>
+<body class=" indigo lighten-5" id="body">
+
+  <!-- top nav 2 -->
+ <header>
+  <nav class="z-depth-0" id="head-nav">
+    <script type="text/javascript" src="/js/bone/head.js"></script>
+    <script> fun_head_show(true); </script>
+  </nav>
+</header>
+
+  <!-- side nav 2 -->
+   <ul id="side-menu" class="sidenav side-menu ">
+    <script type="text/javascript" src="/js/bone/side-menu.js"></script>
+    <script> fun_side_menu(true); </script>
+  </ul>
+
+
+  <!-- content -->
+  <SECTION class=" blue-grey-text row" id="content">
+    <div  class="box-section rtl" id="">
+            <h6 class="header"><i class="material-icons">اشتراک‌ گذاری</i></h6>
+            <p class="header body-rtl">  لذت بازی را با دوستان خود به اشتراک بگذارید 😍 .با دعوت از   دیگران 400 سکه رایگان بدست آورید .</p>
+            <ul class="collection">
+              <li onclick='fun_share("telegram",2)' class="collection-item avatar">
+                <img src="/img/icons/telegram.svg" alt="" class="circle">  
+                <span class="title bold ">تلگرام</span>
+                <p class="body-rtl">برای اشتراک گذاری از طریق تلگرام اینجا را ضربه بزنید.
+                </p>
+              </li>
+              <li onclick='fun_share("whatsapp",2)' class="collection-item avatar">
+               <img src="/img/icons/whatsapp.svg" alt="" class="circle">
+                <span class="title">واتساپ</span>
+                <p class="body-rtl">برای اشتراک گذاری از طریق واتساپ اینجا را ضربه بزنید.
+                </p>
+              </li>
+              <li onclick='fun_share("facebook",2)' class="collection-item avatar">
+               <img src="/img/icons/facebook.svg" alt="" class="circle">
+                <span class="title">فیسبوک</span>
+                <p class="body-rtl">برای اشتراک گذاری از طریق فیسبوک اینجا را ضربه بزنید.
+                </p>
+              </li>
+              <li onclick='fun_share("twitter",2)' class="collection-item avatar">
+               <img src="/img/icons/twitter.svg" alt="" class="circle">
+                <span class="title">توییتر</span>
+                <p class="body-rtl">برای اشتراک گذاری از طریق توییتر اینجا را ضربه بزنید.
+                </p>
+              </li>
+            
+              <li onclick='fun_share("email",2)' class="collection-item avatar">
+               <img src="/img/icons/message.svg" alt="" class="circle">
+                <span class="title">ایمیل</span>
+                <p class="body-rtl">برای اشتراک گذاری از طریق ایمیل اینجا را ضربه بزنید.
+                </p>
+              </li>
+              <!--
+              <li onclick='fun_share("copy",2)' class="collection-item avatar">
+               <img src="../img/icons/link.svg" alt="" class="circle">
+                <span class="title">Copy</span>
+                <input type="hidden" value="" id="copytextinput">
+                <p>Tab here to copy invite link.
+                </p>
+              </li>
+              -->
+            </ul>
+          </div>
+  </SECTION>
+ 
+
+
+
+  <script type="text/javascript" src="/js/browser.js"></script> <!-- check browser versuion -->
+  <script src="/js/scrpt.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/app.js"></script>
+
+   <script> gtag('event', 'share_fa'); </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+.preloader-background {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #eee;
+	
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;	
+}
+@-webkit-keyframes flipLoop {
+    0%,20% {
+        -webkit-transform:rotateY( 0deg );
+    }
+  
+    30%,70% {
+        -webkit-transform:rotateY( 180deg );
+    }
+    
+    80%,100% {
+        -webkit-transform:rotateY( 360deg );
+    }
+}
+
+
+.container {
+      -webkit-perspective: 800px;
+         -moz-perspective: 800px;
+           -o-perspective: 800px;
+              perspective: 800px;
+    }
+
+    #card {
+      width: 200px;
+      height: 260px;
+      margin:0 auto;
+      -webkit-transition: -webkit-transform;
+      -webkit-transform-style: preserve-3d;
+      -webkit-animation: flipLoop;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-duration: 4s;
+    }
+
+    #card figure {
+      display: block;
+      height: 100%;
+      width: 100%;
+      margin:0;
+      line-height: 260px;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      font-size: 140px;
+      position: absolute;
+      -webkit-backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      -o-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    #card .back {
+      
+      -webkit-transform: rotateY( 180deg );
+      -moz-transform: rotateY( 180deg );
+      -o-transform: rotateY( 180deg );
+      transform: rotateY( 180deg );
+    }

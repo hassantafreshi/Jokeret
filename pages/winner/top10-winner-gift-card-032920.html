@@ -1,0 +1,222 @@
+<html lang="en">
+<head>
+<!-- firebase auth section -->
+ <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase.js"></script>
+ 
+ <script type="text/javascript" src="/js/bone/lan/language.js"></script>
+<!-- firebase end section -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="/js/gifts.js"></script>
+  <title>Jokeret |Winner of gift Cards>03292020</title> 
+  <!-- materialize icons, css & js -->
+  <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" href="/css/styles.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8J3FCS630"></script>
+  <!-- -->
+  <script type="text/javascript" src="/js/bone/lan/ph.js"></script>
+  <script type="text/javascript" src="/js/bone/lan/language.js"></script>
+  <link rel="manifest" href="/manifest.json">
+  
+      <script type="text/javascript" src="/js/browser.js"></script> <!-- check browser versuion -->
+  
+     
+     <!-- colyseus.js client -->
+    
+  <!--  IOS support-->
+  <!--  برای هر نسخه موبایل باید آیکون ها ادد شود-->
+  <link rel="apple-touch-icon" href="/icons/icon-96.png">
+  <meta name="apple-mobile-web-app-status-ba" content ="#053f5e">  <!-- header Color IOS -->
+
+</head>
+<body class=" indigo lighten-5" id="body">
+
+  <!-- top nav 2 -->
+<header>
+  <nav class="z-depth-0" id="head-nav">
+    <script type="text/javascript" src="/js/bone/head.js"></script>
+    <script> fun_head_show(true); </script>
+  </nav>
+</header>
+
+  <!-- side nav 2 -->
+   <ul id="side-menu" class="sidenav side-menu ">
+    <script type="text/javascript" src="/js/bone/side-menu.js"></script>
+    <script> fun_side_menu(true); </script>
+  </ul>
+
+
+  <!-- content -->
+  <div class="indigo lighten-5 row " id="content">
+    <div class="col s12 row center">
+        <h2 id="topten-title">topTen</h2>
+        <h5 id="topten-des">
+        
+        </h5>
+         <table>
+          <thead>
+            <tr class="red-Jokeret white-text">
+                
+                <th id='noTitle' style="width: 10%;">No.</th>
+                <th id='nameTitle' style="width: 50%;">Name</th>
+                <th id='coinTitle'>Coin</th>
+            </tr>
+          </thead>
+
+          <tbody id="topTenRows">
+            <tr class="yellow lighten-5" id="rowNoTopTen">
+             
+              <td id="noUser">1</td>
+              <td id="nameUser">Yalda</td>
+              <td id="coinUser">100000</td>
+            </tr>
+
+                    
+          </tbody>
+        </table>
+      </div>
+     
+  </div>
+   
+
+
+
+
+
+  <!-- add card-room side nav -->
+   <script type="text/javascript" src="https://raw.githack.com/colyseus/colyseus.js/0.12.0/dist/colyseus.js"></script>
+    <script src="/js/bone/auth.js"></script>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js'></script>
+  <div id="side-form" class="sidenav side-form   indigo lighten-5 ">
+ 
+
+  <script src="/js/ui.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/scrpt.js"></script>
+ 
+  <script>
+  
+
+  if(localStorage.getItem('language')==='fa' || localStorage.getItem('language')==='ar'){
+    console.log('rtl');
+    document.getElementById('content').className+="rtl";
+
+  }else{
+     document.getElementById('content').className="ndigo lighten-5 row";
+  }
+  </script>
+
+     <script>
+        
+
+          fun_add_table();
+          function fun_add_table(){
+            const obj = [
+              {
+                i:1,
+                name:'mohammadrhs',
+                image:'/img/users/k861o23dBJI4K6PUR9W.jpg',
+                coin:6389
+              },
+              {
+                i:2,
+                name:'paniii',
+                image:'/img/users/k7rm2brsO3VZYDF9.jpg',
+                coin:5893
+              },
+              {
+                i:3,
+                name:'Yaldaa',
+                image:'/img/users/k7s136s1D1IDC0ZE9RU.jpg',
+                coin:5404
+              },
+              {
+                i:4,
+                name:' NeHa!',
+                image:'/img/users/k7lr63rvRIDTJER3HW.jpg',
+                coin:4899
+              },
+              {
+                i:5,
+                name:' Puria0535',
+                image:'/img/users/k860kv2wJO5ON6JML6.jpg',
+                coin:4406
+              },
+              {
+                i:6,
+                name:'Mr last',
+                image:'https://lh3.googleusercontent.com/a-/AOh14Gi2mH3OgFJ3TUmgsapw2BVwQ7btSqGRMB9r80v04A',
+                coin:3990
+              },
+              {
+                i:7,
+                name:'azZieeN',
+                image:'/img/users/k7rm0dpiTUYTAST4.jpg',
+                coin:3900
+              },
+              {
+                i:8,
+                name:'hastiiish',
+                image:'d',
+                coin:3775
+              },
+              {
+                i:9,
+                name:'Amir55544',
+                image:'/img/users/k862i38lSL1BSCZT768.jpg',
+                coin:3640
+              },
+              {
+                i:10,
+                name:'Fatima',
+                image:'/img/users/k8d2e7co4Y1SYT7G0C6.jpg',
+                coin:2810
+              },
+            ];
+            /*
+                   
+              <td id="noUser">1</td>
+              <td id="nameUser">Eclair</td>
+              <td id="coinUser">100000</td>
+            */
+            let content =  document.getElementById('topTenRows');
+            let temp;
+            for(o in obj){
+           
+              if(o==0){
+                temp =`  
+                    <tr class="grey lighten-4" id="rowNoTopTen">              
+                      <td id="noUser">${obj[o].i}</td>
+                      <td id="nameUser"><img src="${obj[o].image=='d' ? '/img/logo/joker_00.jpg':obj[o].image}"  onerror="this.onerror=null;this.src='https://jokeret.com/img/logo/joker_00.jpg';"  alt="User Photo" class=" circle" id="img-user-head-info" width="25"> <span class="table-tt-name"> ${obj[o].name}</span></td>
+                      <td id="coinUser">${obj[o].coin}</td>
+                    </tr>`;
+              }else{
+                
+                temp +=`            
+                <tr class="${o%2 ? 'amber lighten-4'  :'grey lighten-4' }" id="rowNoTopTen">              
+                  <td id="noUser">${obj[o].i}</td>
+                  <td id="nameUser"><img src="${obj[o].image=='d' ? '/img/logo/joker_00.jpg':obj[o].image}"  onerror="this.onerror=null;this.src='https://jokeret.com/img/logo/joker_00.jpg';" alt="User Photo"  class=" circle" id="img-user-head-info" width="25"> <span class="table-tt-name"> ${obj[o].name}</span></td>
+                  <td id="coinUser">${obj[o].coin}</td>
+                </tr>`;
+              }
+ 
+            }
+            content.innerHTML =temp ;
+          }
+
+          localStorage.getItem("language")==="ar" ? document.getElementById("content").className +=" body-rtl font-arabic" :0 ;
+          localStorage.getItem("language")==="fa" ? document.getElementById("content").className +=" body-rtl font-persian" :0 ;
+          document.getElementById('topten-title').innerHTML =`${trans(`Top Ten`)}`;
+          document.getElementById('topten-des').innerHTML =`${trans(`Top Ten Winners of Gift Card of First Round (29/3/2020)`)}`;
+          document.getElementById('noTitle').innerHTML =`${trans(`No.`)}`;
+          document.getElementById('nameTitle').innerHTML =`${trans(`name`)}`;
+          document.getElementById('coinTitle').innerHTML =`${trans(`Coin`)}`;
+          fun_setting_get_data();
+           gtag('event', 'top10_page');
+   </script>
+  
+</body>
+</html>

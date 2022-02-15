@@ -1,0 +1,139 @@
+<html lang="en">
+<head>
+<!-- firebase auth section -->
+ <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase.js"></script>
+
+<script type="text/javascript">
+ window.addEventListener('popstate', function (e) {
+    var state = e.state;
+    if (state !== null) {
+      alert('test');
+        //load content with ajax
+    }
+});
+
+if (window.performance && window.performance.navigation.type == window.performance.navigation.TYPE_BACK_FORWARD) {
+  
+}
+
+</script>
+ <meta http-equiv="cache-control" content="no-cache" />
+ <!-- <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script> -->
+ <script type="text/javascript" src="/js/bone/lan/language.js"></script>
+<!-- firebase end section -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="/js/gifts.js"></script>
+  <title>Jokeret|>Play Online Cards Game</title> 
+  <meta name="description" content="Jokeret app,Play Hokm online - حکم آنلاین">
+  <!-- materialize icons, css & js -->
+  <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" href="/css/styles.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </script>  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8J3FCS630"></script>
+  <!-- -->
+  <script type="text/javascript" src="/js/bone/lan/ph.js"></script>
+  <script type="text/javascript" src="/js/bone/lan/language.js"></script>
+  <link rel="manifest" href="/manifest.json">
+
+      <script type="text/javascript" src="/js/browser.js"></script> <!-- check browser versuion -->
+      <script type="text/javascript" src="/js/game/core.js"></script>
+      <script type="text/javascript" src="/js/cl-game.js"></script>
+     
+      
+        
+  <!--  IOS support-->
+  <!--  برای هر نسخه موبایل باید آیکون ها ادد شود-->
+  <link rel="apple-touch-icon" href="/icons/icon-96.png">
+  <meta name="apple-mobile-web-app-status-ba" content ="#053f5e">  <!-- header Color IOS -->
+ 
+</head>
+<body class=" indigo lighten-5" id="body">
+
+  <!-- top nav 2 -->
+<header>
+  <nav class="z-depth-0" id="head-nav">
+    <script type="text/javascript" src="../js/bone/head.js"></script>
+    <script> fun_head_show(true); </script>
+  </nav>
+</header>
+
+  <!-- side nav 2 -->
+   <ul id="side-menu" class="sidenav side-menu ">
+    <script type="text/javascript" src="/js/bone/side-menu.js"></script>
+    <script> fun_side_menu(true); </script>
+  </ul>
+
+
+  <!-- content -->
+  <div class="indigo lighten-5 " id="content">
+      <h2>Waiting..</h2>
+      <script src="/js/game/game_play.js"></script>
+      <script> fun_show_loby(true); </script>
+      
+     
+  </div>
+     
+
+  <!-- add card-room side nav -->
+
+   
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js'></script>
+  <div id="side-form" class="sidenav side-form   indigo lighten-5 ">
+    <script type="text/javascript" src="/js/bone/side-nav-new-game.js"></script>
+     <script type="text/javascript"  src="/js/modal.js"></script>
+      <script type="text/javascript" src="/js/local.js"></script>
+    <script> fun_side_nav_new_game(true); </script>
+  </div>
+
+  <script src="/js/ui.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/scrpt.js"></script>
+ 
+   <script type="text/javascript" src="/js/cl-chat.js"></script>
+   <script src="/js/message-box.js"></script>
+   <script> //side-form
+
+    if(localStorage.getItem("language")==="fa" ){
+      let id =[`side-form`,`content` ,`sh-modal-content`,`modal-3crads`,`eject-user`,`modal-gift`,`modal-profile`];
+      for(let i of id ){
+        document.getElementById(i).className +=" body-rtl font-persian ";
+      }
+      document.getElementById(`sh-modal-content`).className +=" rtl font-persian ";
+       id=[`sh-title`,`sh-des`,`sh-telegram`,`sh-tg-des`,`sh-WA`,`sh-wa-des`,`sh-fa`,`sh-fa-des`,`sh-tw`,`sh-tw-des`,
+      `sh-em`,`sh-em-des`,`leave-title`,`leave-des`,`kick-title`,`kick-des`,`gifts-sent`,`gifts-recived`,`t-coin`,`t-ex`,`t-win`,`t-left`,`t-gift`];
+      for (let i  of id){
+        
+        document.getElementById(i).innerHTML =trans(document.getElementById(i).innerHTML) ;
+      }
+    }
+    if(localStorage.getItem("language")==="ar" ){
+      let id =[`side-form`,`content` ,`modal-3crads`,`eject-user`,`modal-gift`,`modal-profile`];
+      for(let i of id ){
+        document.getElementById(i).className +=" body-rtl font-arabic ";
+      }
+      document.getElementById(`sh-modal-content`).className +=" rtl font-arabic ";
+     
+      
+      document.getElementById("content").className +=" body-rtl font-arabic";
+       id=[`sh-title`,`sh-des`,`sh-telegram`,`sh-tg-des`,`sh-WA`,`sh-wa-des`,`sh-fa`,`sh-fa-des`,`sh-tw`,`sh-tw-des`,
+      `sh-em`,`sh-em-des`,`leave-title`,`leave-des`,`kick-title`,`kick-des`,`gifts-sent`,`gifts-recived`,`t-coin`,`t-ex`,`t-win`,`t-left`,`t-gift`];
+      for (let i  of id){
+        
+        document.getElementById(i).innerHTML =trans(document.getElementById(i).innerHTML) ;
+        
+      }
+    }
+    if(localStorage.getItem('new')=='true'){
+      message_box_first_time_show();
+    }
+
+
+ 
+
+   </script>
+</body>
+</html>
